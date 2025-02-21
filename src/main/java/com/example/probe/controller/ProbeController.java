@@ -5,6 +5,7 @@ import com.example.probe.models.Position;
 import com.example.probe.models.Probe;
 import com.example.probe.service.IProbeService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +28,9 @@ public class ProbeController {
      * @return The updated state of the probe after executing commands.
      */
     @PostMapping("/execute")
-    public Probe executeCommands(@RequestBody CommandRequest request) {
-        return probeService.executeCommands(request);
+    public ResponseEntity<Probe> executeCommands(@RequestBody CommandRequest request) {
+        Probe probe = probeService.executeCommands(request);
+        return ResponseEntity.ok(probe);
     }
 
     /**
@@ -37,7 +39,8 @@ public class ProbeController {
      * @return A list of visited positions.
      */
     @GetMapping("/visited")
-    public List<Position> getVisitedPositions() {
-        return probeService.getVisitedPositions();
+    public ResponseEntity<List<Position>> getVisitedPositions() {
+        List<Position> visitedPositions = probeService.getVisitedPositions();
+        return ResponseEntity.ok(visitedPositions);
     }
 }
