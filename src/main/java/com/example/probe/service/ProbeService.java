@@ -42,7 +42,7 @@ public class ProbeService implements IProbeService {
      * Constructor for dependency injection, allowing the grid and probe
      * to be injected externally for testing or alternative configurations.
      *
-     * @param grid The grid defining the movement boundaries and obstacles.
+     * @param grid  The grid defining the movement boundaries and obstacles.
      * @param probe The probe that executes movement commands.
      */
     public ProbeService(Grid grid, Probe probe) {

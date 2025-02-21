@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 public class NoOpCommand implements Command {
 
     private static final Logger logger = LoggerFactory.getLogger(NoOpCommand.class);
+
     @Override
     public void execute(Probe probe, Grid grid) {
         logger.warn("Invalid command received. No operation performed.");
