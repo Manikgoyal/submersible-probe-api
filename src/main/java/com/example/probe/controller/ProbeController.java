@@ -4,6 +4,8 @@ import com.example.probe.dto.CommandRequest;
 import com.example.probe.models.Position;
 import com.example.probe.models.Probe;
 import com.example.probe.service.IProbeService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +30,12 @@ public class ProbeController {
      * @return The updated state of the probe after executing commands.
      */
     @PostMapping("/execute")
-    public ResponseEntity<Probe> executeCommands(@RequestBody CommandRequest request) {
+    public ResponseEntity<Probe> executeCommands(@Valid @RequestBody CommandRequest request) {
+
+        //sanitize the incoming request
+        if (request == null) {
+            return ResponseEntity.badRequest().build();
+        }
         Probe probe = probeService.executeCommands(request);
         return ResponseEntity.ok(probe);
     }
