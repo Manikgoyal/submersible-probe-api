@@ -123,6 +123,12 @@ This project includes unit tests for the controller and service layers. Run the 
 mvn test
 ```
 
+## Scope of Improvement
+- Security Implementation: Add authentication & authorization using Spring Security & JWT.
+- Database Integration: Store probe movements and visited positions in a database (e.g., PostgreSQL, MongoDB).
+- Caching: Improve performance using Redis or in-memory caching.
+- API Documentation: Generate OpenAPI documentation using Swagger.
+
 ## Author
 
 Developed by **Manik Goyal**
